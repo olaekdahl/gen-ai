@@ -7,7 +7,7 @@ generator = pipeline("text-generation", model="distilgpt2")
 @app.route("/generate", methods=["POST"])
 def generate():
     prompt = request.json.get("prompt", "")
-    result = generator(prompt, max_new_tokens=50, num_return_sequences=1, truncation=True)
+    result = generator(prompt, max_new_tokens=75, num_return_sequences=1, truncation=True)
     return jsonify(result[0])
 
 # ADD THIS NEW ENDPOINT
